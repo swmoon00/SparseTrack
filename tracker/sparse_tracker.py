@@ -15,7 +15,7 @@ class STrack(BaseTrack):
     def __init__(self, tlwh, score):
 
         # wait activate
-        self._tlwh = np.asarray(tlwh, dtype=np.float)
+        self._tlwh = np.asarray(tlwh, dtype=np.float32)
         self.kalman_filter = None
         self.mean, self.covariance = None, None
         self.is_activated = False
@@ -28,7 +28,7 @@ class STrack(BaseTrack):
         cx = self._tlwh[0] + 0.5 * self._tlwh[2]
         y2 = self._tlwh[1] +  self._tlwh[3]
         lendth = 2000 - y2
-        return np.asarray([cx, y2, lendth], dtype=np.float)
+        return np.asarray([cx, y2, lendth], dtype=np.float32)
 
     def predict(self):
         mean_state = self.mean.copy()
@@ -152,7 +152,7 @@ class STrack(BaseTrack):
         cx = ret[0] + 0.5 * ret[2]
         y2 = ret[1] +  ret[3]
         lendth = 2000 - y2
-        return np.asarray([cx, y2, lendth], dtype=np.float)
+        return np.asarray([cx, y2, lendth], dtype=np.float32)
 
     @staticmethod
     # @jit(nopython=True)

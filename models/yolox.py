@@ -53,6 +53,9 @@ class YOLOX(nn.Module):
             for batch_id, (output_per_image, input_img_size, ori_img_size) in enumerate(zip(
                 batch_outputs, input_image_sizes, ori_image_sizes
             )):
+                if output_per_image is None:
+                    results.append({"instances": None})
+                    continue
                 result = Instances(ori_img_size)
                 pred_bboxes = output_per_image[:, :4]
                 scale = min(input_img_size[0] / float(ori_img_size[0]), input_img_size[1] / float(ori_img_size[1]))
