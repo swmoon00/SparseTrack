@@ -5,6 +5,10 @@ SparseTrack
 ```sh
 docker build -t <image_name> .
 ```
+OR
+```sh
+docker pull 12labs/sparsetrack
+```
 
 1. Clone repo
 ```sh
