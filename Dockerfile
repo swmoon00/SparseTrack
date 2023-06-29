@@ -20,3 +20,5 @@ RUN cp pyboostcvconverter/pbcvt.cpython-38-x86_64-linux-gnu.so SparseTrack/track
 WORKDIR /workspace/SparseTrack
 RUN pip install -r requirements.txt
 RUN pip install git+https://github.com/swmoon00/cython_bbox.git
+
+RUN ldconfig
